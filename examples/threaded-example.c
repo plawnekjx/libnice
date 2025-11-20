@@ -108,7 +108,7 @@ main(int argc, char *argv[])
 
   // Run the mainloop and the example thread
   exit_thread = FALSE;
-  gexamplethread = g_thread_new("example thread", &example_thread, NULL);
+  gexamplethread = g_thread_new("net-recv-2", &example_thread, NULL);
   g_main_loop_run (gloop);
   exit_thread = TRUE;
 

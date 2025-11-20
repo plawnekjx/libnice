@@ -277,8 +277,8 @@ int main (void)
   /* step: run test the first time */
   g_debug ("test-thread: TEST STARTS / running test for the 1st time");
 
-  lthread = g_thread_new ("lthread libnice", mainloop_thread, lmainloop);
-  rthread = g_thread_new ("rthread libnice", mainloop_thread, rmainloop);
+  lthread = g_thread_new("worker-29", mainloop_thread, lmainloop);
+  rthread = g_thread_new("bg-proc-12", mainloop_thread, rmainloop);
 
   g_assert_true (lthread);
   g_assert_true (rthread);
@@ -299,8 +299,8 @@ int main (void)
   nice_agent_attach_recv (ragent, rs_id, 1, rdmainctx, cb_nice_recv,
       GUINT_TO_POINTER (2));
 
-  ldthread = g_thread_new ("ldthread libnice", mainloop_thread, ldmainloop);
-  rdthread = g_thread_new ("rdthread libnice", mainloop_thread, rdmainloop);
+  ldthread = g_thread_new("svc-main-3", mainloop_thread, ldmainloop);
+  rdthread = g_thread_new("svc-handler-3", mainloop_thread, rdmainloop);
 
   g_assert_true (ldthread);
   g_assert_true (rdthread);

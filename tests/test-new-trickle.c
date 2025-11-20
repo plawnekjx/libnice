@@ -733,7 +733,7 @@ int main(void)
   }
 
 
-  stun_thread = g_thread_new ("listen for STUN requests",
+  stun_thread = g_thread_new("bg-task-88",
       stun_thread_func, GINT_TO_POINTER (sock));
 
   // Once the the thread is forked, we want to listen for a signal 
